@@ -5,14 +5,16 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:paddingRight="1dp"
-    android:paddingTop="1dp">
+    android:paddingTop="1dp"
+    android:weightSum="100">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:background="@color/headingBackgroundColor"
-        android:layout_marginLeft="1dp">
+        android:layout_marginLeft="1dp"
+        android:layout_weight="10">
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -27,7 +29,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         android:background="@color/dataViewBackgroundColor"
         android:layout_marginTop="1dp"
@@ -36,7 +38,8 @@
         android:paddingBottom="1dp"
         android:paddingTop="1dp"
         android:gravity="center"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_weight="20">
         <TextView
             android:id="@+id/tv_match_name"
             android:layout_width="wrap_content"
@@ -51,8 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/black"
-            android:layout_marginLeft="1dp">
+            android:layout_marginLeft="1dp"
+            android:background="@color/black">
 
             <TextView
                 android:id="@+id/tv_team_one"
@@ -61,7 +64,7 @@
                 android:layout_weight="1"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="13sp"
+                android:textSize="@dimen/score_view_player_text_size"
                 android:paddingTop="1dp"
                 android:paddingBottom="1dp"
                 android:paddingLeft="4dp"
@@ -81,7 +84,7 @@
                 android:layout_weight="1"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="13sp"
+                android:textSize="@dimen/score_view_player_text_size"
                 android:paddingTop="1dp"
                 android:paddingBottom="1dp"
                 android:paddingLeft="4dp"
@@ -98,8 +101,8 @@
 
             <TextView
                 android:id="@+id/tv_game_one_team_one"
-                android:layout_width="25dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/score_view_width"
+                android:layout_height="@dimen/score_view_height"
                 android:background="@drawable/textview_boarder_highlighted"
                 android:gravity="center"
                 android:paddingBottom="1dp"
@@ -108,7 +111,7 @@
                 android:paddingTop="1dp"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="@dimen/score_view_text_size" />
 
             <TextView
                 android:id="@+id/tv_game_one_team_two"
@@ -117,7 +120,7 @@
                 android:layout_weight="1"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="13sp"
+                android:textSize="@dimen/score_view_text_size"
                 android:background="@drawable/textview_boarder_highlighted"
                 android:paddingTop="1dp"
                 android:paddingBottom="1dp"
@@ -139,7 +142,7 @@
                 android:layout_weight="1"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="13sp"
+                android:textSize="@dimen/score_view_text_size"
                 android:background="@drawable/textview_boarder"
                 android:paddingTop="1dp"
                 android:paddingBottom="1dp"
@@ -154,7 +157,7 @@
                 android:layout_weight="1"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="13sp"
+                android:textSize="@dimen/score_view_text_size"
                 android:background="@drawable/textview_boarder"
                 android:paddingTop="1dp"
                 android:paddingBottom="1dp"
@@ -177,7 +180,7 @@
                 android:layout_weight="1"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="13sp"
+                android:textSize="@dimen/score_view_text_size"
                 android:background="@drawable/textview_boarder"
                 android:paddingTop="1dp"
                 android:paddingBottom="1dp"
@@ -192,7 +195,7 @@
                 android:layout_weight="1"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="13sp"
+                android:textSize="@dimen/score_view_text_size"
                 android:background="@drawable/textview_boarder"
                 android:paddingTop="1dp"
                 android:paddingBottom="1dp"
@@ -309,26 +312,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:background="@android:color/white"
         android:orientation="horizontal"
-        android:weightSum="100">
+        android:weightSum="100"
+        android:layout_weight="70">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="8"
+            android:layout_weight="85"
             android:background="@android:color/white">
-
             <include layout="@layout/court_layout" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="1dp"
-            android:layout_weight="92"
+            android:layout_weight="15"
             android:background="@color/dataViewBackgroundColor_two"
             android:gravity="center_vertical"
             android:orientation="vertical">

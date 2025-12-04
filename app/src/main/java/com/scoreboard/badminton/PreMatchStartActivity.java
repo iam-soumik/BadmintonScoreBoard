@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -19,6 +18,8 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
 
 import com.scoreboard.badminton.Model.Game;
 import com.scoreboard.badminton.Model.Match;
@@ -44,15 +45,16 @@ public class PreMatchStartActivity extends Activity implements View.OnClickListe
     RelativeLayout left_even_court, right_even_court;
     Spinner sp_match_number;
     int servingTeam = 0, curYear = 0;
-    String heading = "", year_offset = "";
+    String heading = "", year_offset = "", edition = "";
     Team team1, team2, temp_team;
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pre_match_start);
         BSBGlobalVariable.nextMatchTeam = new ArrayList<>();
-
+        dbHelper = new DBHelper(this);
         initializeViews();
         setUpHeading();
         setTeamDetails();
@@ -60,9 +62,17 @@ public class PreMatchStartActivity extends Activity implements View.OnClickListe
     }
 
     private void setUpHeading(){
+        edition = dbHelper.getEdition();
+
         Calendar calendar = Calendar.getInstance();
         int curYear = calendar.get(Calendar.YEAR);
-        int yr = 10 + (curYear - 2021); // get edition of tournament.e.g 10th,11th etc. Taking 2021 as 10th year
+        int yr = 0;
+        if(edition.equalsIgnoreCase("") || edition.equals(null)){
+            yr = 10 + (curYear - 2021); // get edition of tournament.e.g 10th,11th etc. Taking 2021 as 10th year
+        }
+        else{
+            yr = Integer.parseInt(edition);
+        }
         if(yr < 21){
             year_offset = yr + "th";
         }else{
@@ -78,6 +88,7 @@ public class PreMatchStartActivity extends Activity implements View.OnClickListe
             }
         }
         heading = getString(R.string.app_heading) + " " + curYear + "(" + year_offset + " year" + ")";
+
         tv_heading.setText(heading);
     }
 

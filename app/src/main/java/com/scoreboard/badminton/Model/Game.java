@@ -1,6 +1,5 @@
 package com.scoreboard.badminton.Model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

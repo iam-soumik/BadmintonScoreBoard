@@ -5,7 +5,8 @@
     android:background="@color/baseColor"
     tools:context="com.scoreboard.badminton.DashboardActivity"
     android:padding="1dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,24 +14,26 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:background="#F15A5A"
-        android:layout_marginBottom="1dp">
+        android:padding="10dp">
 
+    <EditText
+        android:id="@+id/et_edition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Enter Tournament Edition"
+        android:inputType="number"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="18sp"
+        android:layout_marginRight="2dp"/>
         <Button
-            android:id="@+id/bt_new_game"
+            android:id="@+id/bt_continue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Game"
-            android:textSize="20sp"
-            android:padding="10dp"
+            android:text="Procced"
             android:layout_gravity="center_horizontal"
             android:background="@color/cardview_light_background"/>
     </LinearLayout>
-
-
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
 
 </LinearLayout>

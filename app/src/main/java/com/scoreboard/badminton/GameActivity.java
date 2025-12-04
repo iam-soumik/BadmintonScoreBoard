@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.speech.tts.TextToSpeech;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +16,8 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
 
 import com.scoreboard.badminton.Model.Game;
 import com.scoreboard.badminton.Model.Match;
@@ -547,8 +548,10 @@ public class GameActivity extends Activity implements View.OnClickListener, Text
 
                 if(left_point == 30 && right_point == 29){
                     game_point = game_point + " . Game Over ";
+                    game_point = game_point.replace("Service Change ", "");
                 }else if(left_point >= 21 && left_point - right_point >= 2){
                     game_point = game_point + " . Game Over ";
+                    game_point = game_point.replace("Service Change ", "");
                 }else if(left_point >= 20 && left_point - right_point >= 1){
                     game_point = game_point + " . Game point ";
                 }
@@ -564,14 +567,17 @@ public class GameActivity extends Activity implements View.OnClickListener, Text
 
                 if(right_point == 30 && left_point == 29){
                     game_point = game_point + " . Game Over ";
+                    game_point = game_point.replace("Service Change ", "");
                 }else if(right_point >= 21 && right_point - left_point >= 2){
                     game_point = game_point + " . Game Over ";
+                    game_point = game_point.replace("Service Change ", "");
                 }else if(right_point >= 20 && right_point - left_point >= 1){
                     game_point = game_point + " . Game point ";
                 }
             }
         }
         tv_game_point.setText(game_point);
+
         currentPointToAnnounce = game_point;
         if(shouldSpeakout){
             speakOut(game_point);
@@ -644,7 +650,7 @@ public class GameActivity extends Activity implements View.OnClickListener, Text
                     mGame.getTeamList().get(wining_team).getRightPlayer();
         }
 
-        this.announceWinner(message);
+        //this.announceWinner(message);
 
         BSBGlobalVariable.currentMatch.setWinnerTeam(mGame.getTeamList().get(wining_team).getLeftPlayer() + " / " +
                 mGame.getTeamList().get(wining_team).getRightPlayer());

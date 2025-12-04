@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="1dp"
-                android:layout_weight="8"
+                android:layout_weight="7"
                 android:background="@color/courtColor">
 
                 <FrameLayout
@@ -132,7 +132,7 @@
                 android:id="@+id/left_first_court"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="8"
+                android:layout_weight="9"
                 android:background="@color/courtColor"
                 android:gravity="center">
 
@@ -142,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:textColor="@color/colorAccent"
-                    android:textSize="35sp"
+                    android:textSize="50sp"
                     android:textStyle="bold"
                     android:visibility="gone" />
             </RelativeLayout>
@@ -165,7 +165,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="1dp"
-                android:layout_weight="8"
+                android:layout_weight="9"
                 android:background="@color/courtColor"
                 android:gravity="center">
 
@@ -175,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:textColor="@color/colorAccent"
-                    android:textSize="35sp"
+                    android:textSize="50sp"
                     android:textStyle="bold"
                     android:visibility="gone" />
 
@@ -185,7 +185,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="1dp"
-                android:layout_weight="8"
+                android:layout_weight="7"
                 android:background="@color/courtColor">
 
                 <FrameLayout

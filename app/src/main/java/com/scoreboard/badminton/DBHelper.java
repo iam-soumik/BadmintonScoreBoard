@@ -17,8 +17,10 @@ import java.util.ArrayList;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "BadmintonScoreBoard.db";
     public static final String MATCH_TABLE_NAME = "match";
+    public static final String TOURNAMENT_EDITION_TABLE_NAME = "edition_table";
     public static final String id = "id";
     public static final String matchID = "matchID";
+    public static final String editionNumber = "editionNumber";
     public static final String matchDuration = "matchDuration";
     public static final String team1 = "team1";
     public static final String team2 = "team2";
@@ -28,7 +30,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String winnerTeam = "winnerTeam";
 
     public DBHelper(Context context) {
-        super(context, DATABASE_NAME , null, 1);
+        super(context, DATABASE_NAME , null, 2);
     }
 
     @Override
@@ -44,12 +46,19 @@ public class DBHelper extends SQLiteOpenHelper {
                 + game3Point + " TEXT " +
              ")"
         );
+        db.execSQL(
+                "CREATE TABLE " + TOURNAMENT_EDITION_TABLE_NAME +
+                        "("
+                        + id + " INTEGER PRIMARY KEY," + editionNumber + " TEXT "+
+                        ")"
+        );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // TODO Auto-generated method stub
         db.execSQL("DROP TABLE IF EXISTS " + MATCH_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TOURNAMENT_EDITION_TABLE_NAME);
         onCreate(db);
     }
 
@@ -96,6 +105,26 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(winnerTeam, match.getWinnerTeam());
         db.insert(MATCH_TABLE_NAME, null, contentValues);
         return true;
+    }
+
+    public boolean insertTournamentEdition (String edition) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(editionNumber, edition);
+        db.insert(TOURNAMENT_EDITION_TABLE_NAME, null, contentValues);
+        return true;
+    }
+
+    public String getEdition() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from edition_table", null );
+        res.moveToFirst();
+        String edition = "";
+        while(res.isAfterLast() == false){
+            edition = res.getString(res.getColumnIndex(editionNumber));
+            res.moveToNext();
+        }
+        return edition;
     }
 
 }

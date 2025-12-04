@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="score_view_height"> 20dp </dimen>
-    <dimen name="score_view_width"> 25dp </dimen>
+    <dimen name="score_view_height"> 25dp </dimen>
+    <dimen name="score_view_width"> 30dp </dimen>
+    <dimen name="score_view_text_size"> 14sp </dimen>
+    <dimen name="score_view_player_text_size"> 12sp </dimen>
 </resources>
