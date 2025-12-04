@@ -352,11 +352,12 @@ public class PreMatchStartActivity extends Activity implements View.OnClickListe
         }
     }
 
-    @Override
+    /*@Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         if(group == rg_serve){
             switch (checkedId){
-                case R.id.radioLeft:
+                case
+                R.id.radioLeft:
                     servingTeam = 0;
                     left_even_court.setBackgroundColor(ContextCompat.getColor(this, R.color.pointViewHighlightedColor));
                     right_even_court.setBackgroundColor(ContextCompat.getColor(this, R.color.courtColor));
@@ -371,7 +372,23 @@ public class PreMatchStartActivity extends Activity implements View.OnClickListe
                     break;
             }
         }
+    }*/
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if(group == rg_serve){
+            if (checkedId == R.id.radioLeft) {
+                servingTeam = 0;
+                left_even_court.setBackgroundColor(ContextCompat.getColor(this, R.color.pointViewHighlightedColor));
+                right_even_court.setBackgroundColor(ContextCompat.getColor(this, R.color.courtColor));
+            } else if (checkedId == R.id.radioRight) {
+                servingTeam = 1;
+                left_even_court.setBackgroundColor(ContextCompat.getColor(this, R.color.courtColor));
+                right_even_court.setBackgroundColor(ContextCompat.getColor(this, R.color.pointViewHighlightedColor));
+            }
+        }
+
     }
+
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
