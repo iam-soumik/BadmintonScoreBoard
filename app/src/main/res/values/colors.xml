@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#27AE60</color>
+    <color name="colorPrimaryDark">#1E8449</color>
+    <color name="colorAccent">#F1DC10</color>
+    <color name="baseColor">#58D68D</color>
+    <color name="courtColor">#1E8449</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="pointViewHighlightedColor">#B03A2E</color>
+    <color name="headingBackgroundColor">#17202A</color>
+    <color name="dataViewBackgroundColor">#1C2833</color>
+    <color name="dataViewBackgroundColor_two">#212F3D</color>
+    <color name="teamBackgroundColor">#283747</color>
+    <color name="roundTextViewBackgroundColorOne">#154360</color>
+    <color name="roundTextViewBackgroundColorTwo">#1A5276</color>
+    <color name="colorOffWhite">#E5E7E9</color>
+
+
+    <color name="black_overlay">#66000000</color>
+</resources>
