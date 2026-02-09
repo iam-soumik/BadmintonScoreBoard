@@ -1,8 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion 35
     buildToolsVersion "35.0.0"
+
     defaultConfig {
         applicationId "com.scoreboard.badminton"
         minSdkVersion 22
@@ -11,18 +13,48 @@ android {
         versionName "1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    flavorDimensions "mode"
+
+    productFlavors {
+        tournament {
+            dimension "mode"
+            buildConfigField "boolean", "RESTRICTED_BUILD", "false"
+        }
+        restricted {
+            dimension "mode"
+            buildConfigField "boolean", "RESTRICTED_BUILD", "true"
         }
     }
+
+    buildTypes {
+        debug { }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName =
+                    "badminton-scoreboard-${variant.flavorName}-${variant.buildType.name}.apk"
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     namespace 'com.scoreboard.badminton'
 }
+
 
 dependencies {
     implementation 'com.google.android.material:material:1.0.0'
