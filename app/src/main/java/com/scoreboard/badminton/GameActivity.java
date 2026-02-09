@@ -120,7 +120,6 @@ public class GameActivity extends Activity implements View.OnClickListener, Text
                 right_even_court.setBackgroundColor(ContextCompat.getColor(this, R.color.pointViewHighlightedColor));
                 previousServingSideLayoutId = right_even_court.getId();
             }else{
-
                 if(previousServingSideLayoutId != 0){
                     ((RelativeLayout) findViewById(previousServingSideLayoutId)).
                             setBackgroundColor(ContextCompat.getColor(this,R.color.courtColor));
